@@ -1,4 +1,6 @@
-import { orderAZ, orderZA, orderLowest, orderHighest, fillterType, inputPokemon } from "./data.js";
+import { orderAZ, orderZA, orderLowest, orderHighest, fillterType, getFillTypeSelected,searchByName, inputPokemonName } from "./data.js";
+import data from "./data/pokemon/pokemon.js";
+let pokemonList = data.pokemon;
 
 let pokemonContainer = document.getElementById("root");
 
@@ -10,10 +12,7 @@ function buildCards(pokemonArray) {
     card.className = "card";
     card.addEventListener(
       "click",
-      () => {
-        // agrega el lissener a la card
-        console.log(pokemon.name);
-
+      () => {  // agrega el lissener a la card
         buildModalInfo(pokemon);
       },
       false
@@ -65,19 +64,19 @@ function orderList() {
     orderType // muestra la información segun el caso elegido
   ) {
     case "AZ": //toma el valor de la opcion seleccionada HTML value = AZ
-      resultOrder = orderAZ(); //la función que se ejecutará en caso de ser seleccionada
+      resultOrder = orderAZ(pokemonList); //la función que se ejecutará en caso de ser seleccionada
       break;
 
     case "ZA": //toma el valor de la opcion seleccionada HTML value = ZA
-      resultOrder = orderZA();
+      resultOrder = orderZA(pokemonList);
       break;
 
     case "lowest": //toma el valor de la opcion seleccionada HTML value = lowest
-      resultOrder = orderLowest();
+      resultOrder = orderLowest(pokemonList);
       break;
 
     case "higher": //toma el valor de la opcion seleccionada HTML value = higher
-      resultOrder = orderHighest();
+      resultOrder = orderHighest(pokemonList);
       break;
   }
 
@@ -169,7 +168,6 @@ function buildModalInfo(pokemon) {
 
     let contGeneNum = document.getElementById("ModalGeneration"); //contenedor
     //contGeneNum.className="modGeneNum";
-    console.log(contGeneNum);
     let geneNumO = document.createTextNode(`${pokemon.generation["name"]}`); // agrega objeto
     let atributoGeneNum = document.createElement("div");
     atributoGeneNum.className = "negritas";
@@ -191,17 +189,26 @@ function buildModalInfo(pokemon) {
   // // contMaxCP.appendChild(maxCp);
   // // modalInfoPokemon.appendChild(contMaxCP);
 
-  console.log(pokemon);
+ // console.log(pokemon);
 }
 
 ////////////// CONSTRUCTORES DE CARDS
 
 ////CONSTRUCTOR BUSQUEDA
-document.getElementById("botonSearch").addEventListener(
-  "click",
-  () => {
+// document.getElementById("botonSearch").addEventListener(
+//   "click",  () => {
+//     pokemonContainer.innerHTML = "";
+//     buildCards(inputPokemon());
+//   },
+//   false
+// );
+
+document.getElementById("inputSearch").addEventListener(
+  "keypress",  () => {
     pokemonContainer.innerHTML = "";
-    buildCards(inputPokemon());
+    let pokemonSearchByName = inputPokemonName()
+    console.log(pokemonSearchByName);
+    buildCards(searchByName(pokemonSearchByName,pokemonList));
   },
   false
 );
@@ -221,9 +228,10 @@ document.getElementById("filter").addEventListener(
   "click",
   () => {
     pokemonContainer.innerHTML = "";
-    buildCards(fillterType());
+    let pokemonTypeSelected = getFillTypeSelected()
+    buildCards(fillterType(pokemonTypeSelected,pokemonList));
   },
   false
 );
 
-buildCards(orderLowest()); // callback funcion lowest para mostrar en pag iniciada
+buildCards(orderLowest(pokemonList)); // callback funcion lowest para mostrar en pag iniciada
