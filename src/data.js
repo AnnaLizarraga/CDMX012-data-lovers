@@ -135,4 +135,3 @@ export function searchByName(pokemonSearchByName, pokemonList){
   }
   return pokemonSelected;
 }
-

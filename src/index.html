@@ -13,61 +13,74 @@
 
 <body>
 
-  <header>
+  <header  class="hide-header">
+  <div>
     <h1>Pokédex</h1>
-    <div>
 
-    
-    <select id="order" class="selectPokemon">
-      <option value="AZ" id="AZ"> Alphabetical A to Z </option>
-      <option value="ZA" id="ZA"> Alphabetical Z to A </option>
-      <option value="lowest" id="1-251" selected= "selected"> Lowest to Higher </option>
-      <option value="higher" id="251-1"> Higher to Lowest </option>
-    </select>
+    <div filters>
+      <select id="order" class="selectPokemon">
+        <option disabled selected>Order</option>
+        <option value="AZ" id="AZ"> Alphabetical A to Z </option>
+        <option value="ZA" id="ZA"> Alphabetical Z to A </option>
+        <option value="lowest" id="1-251" selected= "selected"> Lowest to Higher </option>
+        <option value="higher" id="251-1"> Higher to Lowest </option>
+      </select>
 
-    <select id="filter" class="selectPokemon">
-      <option value="normal" id="normal">Normal</option>
-      <option value="grass" id="grass">Grass</option>
-      <option value="bug" id="bug">Bug</option>
-      <option value="water" id="water">Water</option>
-      <option value="electric" id="electric">Electric</option>
-      <option value="fire" id="fire">Fire</option>
-      <option value="ground" id="ground">Ground</option>
-      <option value="rock" id="rock">Rock</option>
-      <option value="steel" id="steel">Steel</option>
-      <option value="dark" id="dark">Dark</option>
-      <option value="fighting" id="fighting">Fighting</option>
-      <option value="flying" id="flying">Flying</option>
-      <option value="fairy" id="fairy">Fairy</option>
-      <option value="dragon" id="dragon">Dragon</option>
-      <option value="ice" id="ice">Ice</option>
-      <option value="poison" id="poison">Poison</option>
-      <option value="ghost" id="ghost">Ghost</option>
-      <option value="psychic" id="psychic">Psychic</option>
-    </select>
-    
-    <div id ="inputSearchContainer" class="searchPokemon"> <input id ="inputSearch" type="text" value= "" placeholder="Search by Name"> </div>
-    <!-- <button type="button" id="botonSearch">Search</button> -->
-
- </div>
+      <select id="filter" class="selectPokemon">
+        <option disabled selected>Fillter by type</option>
+        <option value="normal" id="normal">Normal</option>
+        <option value="grass" id="grass">Grass</option>
+        <option value="bug" id="bug">Bug</option>
+        <option value="water" id="water">Water</option>
+        <option value="electric" id="electric">Electric</option>
+        <option value="fire" id="fire">Fire</option>
+        <option value="ground" id="ground">Ground</option>
+        <option value="rock" id="rock">Rock</option>
+        <option value="steel" id="steel">Steel</option>
+        <option value="dark" id="dark">Dark</option>
+        <option value="fighting" id="fighting">Fighting</option>
+        <option value="flying" id="flying">Flying</option>
+        <option value="fairy" id="fairy">Fairy</option>
+        <option value="dragon" id="dragon">Dragon</option>
+        <option value="ice" id="ice">Ice</option>
+        <option value="poison" id="poison">Poison</option>
+        <option value="ghost" id="ghost">Ghost</option>
+        <option value="psychic" id="psychic">Psychic</option>
+      </select>
+      
+      <span id ="inputSearchContainer" class="searchPokemon"> 
+        <input id ="inputSearch" type="text" value= "" placeholder="Search by Name"> 
+      </span>
+      <!-- <button type="button" id="botonSearch">Search</button> -->
+    </div>
+  </div>
+  
   </header>
 
-  <aside>
-    <nav>
-      <img id="Entrenador" src="./images/Entrenador_Pokémon_Go.png">
-      <img id="Pokebola" src="./images/POKEBOLA_Mesa de trabajo 1.png">
 
-      <h2>Drasher16</h2>
+  <div  class="aside-web">
+
+      <img id="Entrenador" class="hide-entrenador"   src="./images/Entrenador_Pokémon_Go_poke.png">
+      <img id="EntrenadorMovil" class="hide-entrenador"   src="./images/entrenador_movil.png">
+      <!-- <img id="Pokebola" src="./images/POKEBOLA_Mesa de trabajo 1.png"> -->
+
+      
+
     <div class="player">
-      <div id="level"> <h4>21 <br> Level</h4></div>
-      <div id="barraNivel"></div>
-      <div class="raiting"> <h6>49,352/50,000</h6></div>
+      <div id="userName">Drasher16</div>
+      <div id="level"> 21 Level</div>
+      <div id="barraNivel" class="barraNivelMovile"></div>
+      <div id="raiting"> 49,352/50,000</div>
     </div>
-      <option class="pags" id="Home"> Home </option>
-      <option class="pags" id="Pokedex"> Pokédex </option>
-      <option class="pags" id="Comparation"> Comparation </option>
+
+    <nav>
+      <div Nav id="Nav" class="hideNav">
+        <option class="pags" id="Home"> Home </option>
+        <option class="pags" id="Pokedex"> Pokédex </option>
+        <option class="pags" id="Comparation"> Comparation </option>
+      </div>
     </nav>
-  </aside>
+  </div>
 
   <section id="listadoPokemon">
     <main id="root">
