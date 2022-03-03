@@ -1,3 +1,4 @@
+
 import {
   orderAZ,
   orderZA,
@@ -21,8 +22,7 @@ function buildCards(pokemonArray) {
     card.className = "card";
     card.addEventListener(
       "click",
-      () => {
-        // agrega el lissener a la card
+      () => {// agrega el listener a la card
         buildModalInfo(pokemon);
       },
       false
