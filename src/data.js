@@ -81,6 +81,7 @@ export const orderHighest = (pokemonList) => {
   const pokemonNumHigher = buildPokemonNums().sort(function (a, b) {
     return b - a;
   }); //Ordena los pokemon por número 251-001 comparando el valor de su atributo num
+
   const pokemonHigher = new Array(); // guarda la ejecucion de la funcion
 
   for (const num of pokemonNumHigher) {
@@ -100,7 +101,6 @@ export const orderHighest = (pokemonList) => {
 export function getFillTypeSelected(){
 return document.getElementById("filter").value;//toma el valor de la opcion seleccionada HTML id=filter
 }
-
 
 export const fillterType = (pokemonTypeSelected, pokemonList) => {
    
@@ -135,4 +135,3 @@ export function searchByName(pokemonSearchByName, pokemonList){
   }
   return pokemonSelected;
 }
-
