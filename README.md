@@ -7,9 +7,7 @@
 * [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
 * [4. Consideraciones generales](#4-consideraciones-generales)
 * [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
-* [6. Hacker edition](#6-hacker-edition)
-* [7. Consideraciones técnicas](#7-consideraciones-técnicas)
-* [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)
+* [6. Contenido de referencia](#6-contenido-de-referencia)
 
 ***
 
@@ -286,270 +284,131 @@ Los criterios para considerar que has completado este proyecto son:
 
 ### Definición del producto
 
-Documenta brevemente tu trabajo en el archivo `README.md` de tu repositorio,
-contándonos cómo fue tu proceso de diseño y cómo crees que el producto resuelve
-el problema (o problemas) que tiene tu usuario.
+Para este proyecto se decidió usar la data de **Pokémon**, debido a las muchas
+posibilidades que teníamos. Para definir el producto final se contestó a las 
+siguientes preguntas y con basw en eso, realizamos nuestros primeros bocetos e
+Historias de usuario:
+
+* ¿Quiénes son los principales usuarios de producto?
+** Jugadores de Pokémon Go! que estén interesados en conocer las caracterpisticas 
+básicas de ataque y defensa de cada Pokémon.
+* ¿Cuáles son los objetivos de estos usuarios en relación con el producto?
+** Que el usuario sea capaz de encontrar de forma sencilla la información básica de
+su Pokémon favorito.
+* ¿Cuáles son los datos más relevantes que quieren ver en la interfaz y por qué?
+** Datos básicos como nombre, imagen y tipo, así cono algunas estadísticas básicas
+y fortalezas y debilidades.
+* ¿Cuándo utilizan o utilizarían el producto?
+** Encontrarán en la página principal cada uno de los 251 Pokémon, podrán pulsar a
+cualquiera de las tarjetas y se desplegará una ventana con su información básica. En
+la cabecera encontrarán la sección de ordenado, filtrado y búsqueda para que puedan 
+manejar la información como gusten.
 
 ### Historias de usuario
 
-Una vez que entiendas las necesidades de tus usuarios, escribe las [Historias
-de Usuario](https://es.wikipedia.org/wiki/Historias_de_usuario) que representen
-todo lo que el usuario necesita hacer/ver. Las **Historias de Usuario** deben
-ser el resultado de tu proceso de investigación o _research_ de tus usuarios.
+Con la información conseguida de las preguntas anteriores se definieron las siguientes 
+historias de Usuario:
 
-Asegúrate de incluir la definición de terminado (_definition of done_) y los
-Criterios de Aceptación para cada una.
+1. Yo como usuario quiero poder visualizar la lista completa de Pokémon (nombre, 
+imagen y tipo) en la página principal.
+1.1. Criterios de aceptación
+1.1.1. El usuario va a poder visualizar cada uno de los Pokémon en la página de inicio.
+1.1.2. La información básica de cada Pokémon (nombre, número, imagen y tipo) se
+visualizará en forma de tarjetas por toda la página.
+1.2. Definición de terminado
+1.2.1. La página tendrá una estructura básica en HTML.
+1.2.2. La página tendrá un estilo básico en CSS.
+1.2.3. Las tarjetas se formarán con el modelo de caja _Box Model_ y su distribución
+se hará por medio de _Flexbox_.
+1.2.4. Se cargará la información de cada Pokémon por medio de JS.
 
-En la medida de lo posible, termina una historia de usuario antes de pasar
-a la siguiente (Cumple con Definición de Terminado + Criterios de Aceptación).
+2. Yo como usuario quiero poder ordenar el listado de los Pokemón en la pantalla 
+para poder elegir uno.
+2.1. Criterios de aceptación
+2.1.1. El usuario va a poder visualizar un desplegable en la cabecera de la página.
+2.1.2. El usuario podrá elegir una opción entre orden alfabético y orden numérico,
+ascendente y descendente para poder ordenar la lista.
+2.2. Definición de terminado
+2.2.1. Se creará una entrada con todas las opciones en la cabecera de la página.
+2.2.2. Tendrá un estilo básico en CSS.
+2.2.3. Tendrá una función de ordenado con JS.
+
+3. Yo como usuario quiero poder filtrar el listado de los Pokemón en la pantalla 
+para poder elegir uno.
+3.1. Criterios de aceptación
+3.1.1. El usuario va a poder visualizar un desplegable en la cabecera de la página.
+3.1.2. El usuario podrá elegir una opción entre cada tipo de Pokémon para poder 
+filtrar la lista.
+3.2. Definición de terminado
+3.2.1. Se creará una entrada con todas las opciones en la cabecera de la página.
+3.2.2. Tendrá un estilo básico en CSS.
+3.2.3. Tendrá una función de ordenado con JS.
+
+4. Yo como usuario quiero poder buscar un Pokémon específico.
+4.1. Criterios de aceptación
+4.1.1. El usuario va a poder visualizar un cuadro de texto en la cabecera de la página.
+4.1.2. El usuario podrá ingresar un nombre de un Pokémon para visualizarlo en la página 
+principal.
+4.2. Definición de terminado
+4.2.1. Se creará una entrada de texto para la búsqueda.
+4.2.2. Tendrá un estilo básico en CSS.
+4.2.3. Tendrá una función de ordenado con JS.
+
+5. Yo como usuario quiero poder visualizar la información básica de cada Pokemon 
+en una ventana de la página principal.
+5.1. Criterios de aceptación
+5.1.1. El usuario va a poder dar click a la tarjeta de cada Pokémon.
+5.1.2. El usuario visualizar una ventana con la información básica de cada Pokémon.
+5.1.2. El usuario visualizar en la ventana gráficas con ataque y defensa de cada Pokémon,
+así como su descripción, fortalezas y debilidades.
+5.2. Definición de terminado
+5.2.1. Se creará una ventana modal de forma dinámica en JS.
+5.2.2. Tendrá un estilo básico en CSS.
+5.2.3. Tendrá un botón de cierre.
+5.2.4. Se mostrará información como número, nombre, tipo, descripción, fortalezas y
+debilidades de cada Pokémon.
+5.2.5. Se creará una gráfica que contenga sus puntajes de ataque, defensa y stamina por
+cada Pokémon.
 
 ### Diseño de la Interfaz de Usuario
 
 #### Prototipo de baja fidelidad
 
-Durante tu trabajo deberás haber hecho e iterado bocetos (_sketches_) de tu
-solución usando papel y lápiz. Te recomendamos tomar fotos de todas las
-iteraciones que hagas, que las subas a tu repositorio y las menciones en tu
-`README.md`.
+Comenzamos con dos pantallas mostrando cada Pokémon en lista. Gracias a la 
+retroalimentación de posibles usuarios, el diseño se cambió por el mostrado 
+en las dos siguientes imágenes:
+
+![20220321_210612(1)](https://slack-files.com/T0NNB6T0R-F038E5SAM6D-a6bcfc87f8)
+
+![20220321_210620(1)](https://slack-files.com/T0NNB6T0R-F037LUZHBF1-c39503622c)
 
 #### Prototipo de alta fidelidad
 
-Lo siguiente es diseñar tu Interfaz de Usuario (UI por sus siglas en inglés -
-_User Interface_). Para eso debes aprender a utilizar alguna herramienta de
-diseño visual. Nosotros te recomendamos [Figma](https://www.figma.com/) que es
-una herramienta que funciona en el navegador y, además, puedes crear una cuenta
-gratis. Sin embargo, eres libre de utilizar otros editores gráficos como
-Illustrator, Photoshop, PowerPoint, Keynote, etc.
+Después de eso, trabajamos en los prototipos de alta fidelidad. Nuestra intención
+siempre fue la facilidad para que el usuario pueda encontrar la información que
+necesita de forma rápida, por lo que optamos por una interfaz limpia con los
+colores llamativos sin sobresaturar la página y este fue el resultado final:
 
-El diseño debe representar el _ideal_ de tu solución. Digamos que es lo que
-desearías implementar si tuvieras tiempo ilimitado para trabajar. Además, tu
-diseño debe seguir los fundamentos de _visual design_.
+![Pokedex](https://slack-files.com/T0NNB6T0R-F037M0WLZ3R-7e6a300a1a)
 
-#### Testeos de usabilidad
+![Pokedex (1)](https://slack-files.com/T0NNB6T0R-F038RBH0GGG-59875e6ace)
 
-Durante el reto deberás hacer _tests_ de usabilidad con distintos usuarios, y
-en base a los resultados, deberás iterar tus diseños. Cuéntanos
-qué problemas de usabilidad detectaste a través de los _tests_ y cómo los
-mejoraste en tu propuesta final.
+A pesar de que se trabajó en otras pantallas y en un diseño para móvil, al final
+optamos por tener las dos imágenes mostradas en nuestra pantalla de inicio.
 
-### Implementación de la Interfaz de Usuario (HTML/CSS/JS)
+El resto del proyecto puede verse por el siguiente link de [Figma](https://www.figma.com/file/Q2TWGvu0VwyEA8AjA3LiYh/DATA-LOVERS?node-id=0%3A1).
 
-Luego de diseñar tu interfaz de usuario deberás trabajar en su implementación.
-**No** es necesario que construyas la interfaz exactamente como la diseñaste.
-Tu tiempo de hacking es escaso, así que deberás priorizar
+### Producto final
+El proyecto fue desplegado por medio de Github Pages a través de este link de [Pokedex Go!](https://lizztoher.github.io/CDMX012-data-lovers/src/).
 
-Como mínimo, tu implementación debe:
+## 6. Contenido de referencia
 
-1. Mostrar la data en una interfaz: puede ser un card, una tabla, una lista,
-   etc.
-2. Permitir al usuario interactuar para obtener la infomación que necesita.
-3. Ser _responsive_, es decir, debe visualizarse sin problemas desde distintos
-   tamaños de pantallas: móviles, tablets y desktops.
-4. Que la interfaz siga los fundamentos de _visual design_.
-
-### Pruebas unitarias
-
-El _boilerplate_ de este proyecto no incluye Pruebas Unitarias (_tests_), así es
-que  tendrás que escribirlas tú para las funciones encargadas de  _procesar_,
-_filtrar_ y _ordenar_ la data, así como _calcular_ estadísticas.
-
-Tus _pruebas unitarias_ deben dar una cobertura del 70% de _statements_
-(_sentencias_), _functions_ (_funciones_), _lines_ (_líneas_), y _branches_
-(_ramas_) del archivo `src/data.js` que contenga tus funciones y está detallado
-en la sección de [Consideraciones técnicas](#srcdatajs).
-
-## 6. Hacker edition
-
-Las secciones llamadas _Hacker Edition_ son **opcionales**. Si **terminaste**
-con todo lo anterior y te queda tiempo, intenta completarlas. Así podrás
-profundizar y/o ejercitar más sobre los objetivos de aprendizaje del proyecto.
-
-Features/características extra sugeridas:
-
-* En lugar de consumir la data estática brindada en este repositorio, puedes
-  consumir la data de forma dinámica, cargando un archivo JSON por medio de
-  `fetch`. La carpeta `src/data` contiene una versión `.js` y una `.json` de
-  de cada set datos.
-* Agregarle a tu interfaz de usuario implementada visualizaciones gráficas. Para
-  ello te recomendamos explorar librerías de gráficas como
-  [Chart.js](https://www.chartjs.org/)
-  o [Google Charts](https://developers.google.com/chart/).
-* 100% Coverage
-
-## 7. Consideraciones técnicas
-
-La lógica del proyecto debe estar implementada completamente en JavaScript
-(ES6), HTML y CSS. En este proyecto NO está permitido usar librerías o
-frameworks, solo [vanilla JavaScript](https://medium.com/laboratoria-how-to/vanillajs-vs-jquery-31e623bbd46e),
-con la excepción de librerías para hacer gráficas (charts); ver
-[_Parte opcional_](#6-hacker-edition) más arriba.
-
-El _boilerplate_ contiene una estructura de archivos como punto de partida así
-como toda la configuración de dependencias:
-
-```text
-.
-├── EXTRA.md
-├── README.md
-├── package.json
-├── src
-|  ├── data (según con qué data trabajes)
-|  |  ├── lol
-|  |  |  ├── lol.js
-|  |  |  ├── lol.json
-|  |  |  └── README.md
-|  |  ├── pokemon
-|  |  |  ├── pokemon.js
-|  |  |  ├── pokemon.json
-|  |  |  └── README.md
-|  |  └── rickandmorty
-|  |  |  ├── rickandmorty.js
-|  |  |  ├── rickandmorty.json
-|  |  |  └── README.md
-|  |  └── athletes
-|  |  |  ├── athletes.js
-|  |  |  ├── athletes.json
-|  |  |  └── README.md
-|  |  └── ghibli
-|  |  |  ├── ghibli.js
-|  |  |  ├── ghibli.json
-|  |  |  └── README.md
-|  ├── data.js
-|  ├── index.html
-|  ├── main.js
-|  └── style.css
-└── test
-   └── data.spec.js
-
-directory: 7 file: 20
-```
-
-### `src/index.html`
-
-Como en el proyecto anterior, existe un archivo `index.html`. Como ya sabes,
-acá va la página que se mostrará al usuario. También nos sirve para indicar
-qué scripts se usarán y unir todo lo que hemos hecho.
-
-### `src/main.js`
-
-Recomendamos usar `src/main.js` para todo tu código que tenga que ver con
-mostrar los datos en la pantalla. Con esto nos referimos básicamente a la
-interacción con el DOM. Operaciones como creación de nodos, registro de
-manejadores de eventos (_event listeners_ o _event handlers_), ....
-
-Esta no es la única forma de dividir tu código, puedes usar más archivos y
-carpetas, siempre y cuando la estructura sea clara para tus compañeras.
-
-En este archivo encontrarás una serie de _imports_ _comentados_. Para _cargar_
-las diferentes fuentes de datos tendrás que _descomentar_ la línea
-correspondiente.
-
-Por ejemplo, si "descomentamos" la siguiente línea:
-
-```js
-// import data from './data/lol/lol.js';
-```
-
-La línea quedaría así:
-
-```js
-import data from './data/lol/lol.js';
-```
-
-Y ahora tendríamos la variable `data` disponible en el script `src/main.js`.
-
-### `src/data.js`
-
-El corazón de este proyecto es la manipulación de datos a través de arreglos
-y objetos.
-
-Te recomendamos que este archivo contenga toda la funcionalidad que corresponda
-a obtener, procesar y manipular datos (tus funciones). Por ejemplo:
-
-* `filterData(data, condition)`: esta función `filter` o filtrar recibiría la
-  data, y nos retornaría aquellos datos que sí cumplan con la condición.
-
-* `sortData(data, sortBy, sortOrder)`: esta función `sort` u ordenar
-  recibe tres parámetros.
-  El primer parámetro, `data`, nos entrega los datos.
-  El segundo parámetro, `sortBy`, nos dice con respecto a cuál de los campos de
-  la data se quiere ordenar.
-  El tercer parámetro, `sortOrder`, indica si se quiere ordenar de manera
-  ascendente o descendente.
-
-* `computeStats(data)`: la función `compute` o calcular, nos permitirá hacer
-  cálculos estadísticos básicos para ser mostrados de acuerdo a la data
-  proporcionada.
-
-Estos nombres de funciones y de parámetros son solamente referenciales, lo que
-decidas depende de tu propia implementación.
-
-Estas funciones deben ser [_puras_](https://medium.com/laboratoria-developers/introducci%C3%B3n-a-la-programaci%C3%B3n-funcional-en-javascript-parte-2-funciones-puras-b99e08c2895d)
-e independientes del DOM. Estas funciones serán después usadas desde el archivo
-`src/main.js`, al cargar la página, y cada vez que el usuario interactúe (click,
-filtrado, ordenado, ...).
-
-### `src/data`
-
-En esta carpeta están los datos de las diferentes fuentes. Encontrarás una
-carpeta por cada fuente, y dentro de cada carpeta dos archivos: uno con la
-extensión `.js` y otro `.json`. Ambos archivos contienen la misma data; la
-diferencia es que el `.js` lo usaremos a través de una etiqueta `<script>`,
-mientras que el `.json` está ahí para opcionalmente cargar la data de forma
-asíncrona con [`fetch()`](https://developer.mozilla.org/es/docs/Web/API/Fetch_API)
-(ver sección de [_Parte Opcional_](#6-hacker-edition)).
-
-### `test/data.spec.js`
-
-Tendrás también que completar las pruebas unitarias de las funciones
-implementadas en el archivo `data.js`.
-
-## 8. Pistas, tips y lecturas complementarias
-
-### Primeros pasos
-
-Antes de empezar a escribir código, debes definir qué deberá hacer el producto
-en base al conocimiento que puedas obtener de tu usuario. Estas preguntas te
-pueden ayudar:
-
-* ¿Quiénes son los principales usuarios de producto?
-* ¿Cuáles son los objetivos de estos usuarios en relación con el producto?
-* ¿Cuáles son los datos más relevantes que quieren ver en la interfaz y por qué?
-* ¿Cuándo utilizan o utilizarían el producto?
-* Toda tu investigación previa debe tener como resultado todas las Historias
-  de Usuario de tu proyecto.
-* No hagas los prototipos de alta fidelidad de todas tus Historias. Comienza
-  solamente por los que se necesiten para tu Sprint 1 (semana 1 de trabajo). Más
-  pistas en la guía de organización para el proyecto.
-
-Cuando ya estés lista para codear, te sugerimos empezar de esta manera:
-
-1. Una de las integrantes del equipo debe realizar un :fork_and_knife:
-   [fork](https://help.github.com/articles/fork-a-repo/) del repo de tu cohort,
-   tus _coaches_ te compartirán un _link_ a un repo y te darán acceso de lectura
-   en ese repo. La otra integrante del equipo deber hacer un fork **del
-   repositorio de su compañera** y
-   [configurar](https://gist.github.com/BCasal/026e4c7f5c71418485c1) un `remote`
-   hacia el mismo.
-2. :arrow_down: [Clona](https://help.github.com/articles/cloning-a-repository/)
-   tu *fork* a tu computadora (copia local).
-3. 📦 Instala las dependencias del proyecto con el comando `npm install`. Esto
-   asume que has instalado [Node.js](https://nodejs.org/) (que incluye [npm](https://docs.npmjs.com/)).
-4. Si todo ha ido bien, deberías poder ejecutar las :traffic_light:
-   pruebas unitarias (unit tests) con el comando `npm test`.
-5. Para ver la interfaz de tu programa en el navegador, usa el comando
-  `npm start` para arrancar el servidor web y dirígete a
-  `http://localhost:5000` en tu navegador.
-6. A codear se ha dicho! :rocket:
-
-### Contenido de referencia
-
-#### Diseño de experiencia de usuario (User Experience Design)
+### Diseño de experiencia de usuario (User Experience Design)
 
 * Investigación con usuarios / entrevistas
 * Principios de diseño visual
 
-#### Desarrollo Front-end
+### Desarrollo Front-end
 
 * Unidad de testing en curso de JavaScript en LMS.
 * Unidad de arreglos en curso de JavaScript en LMS.
@@ -572,7 +431,7 @@ Cuando ya estés lista para codear, te sugerimos empezar de esta manera:
 * [Modulos: Export](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/export)
 * [Modulos: Import](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/import)
 
-#### Herramientas
+### Herramientas
 
 * [Git](https://git-scm.com/)
 * [GitHub](https://github.com/)
@@ -580,7 +439,7 @@ Cuando ya estés lista para codear, te sugerimos empezar de esta manera:
 * [Node.js](https://nodejs.org/)
 * [Jest](https://jestjs.io/)
 
-#### Organización del Trabajo
+### Organización del Trabajo
 
 * [Historias de Usuario](https://www.youtube.com/watch?v=ky6wFiF5vMk&t=344s).
   Ojo que Cris no diferencia _Definición de terminado_ de _Criterios de
