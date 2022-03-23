@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Pokedex Go! - Encuentra todo sobre tus personajes favoritos de Pokemon</title>
+  <title>Pokédex Go! - Encuentra todo sobre tus personajes favoritos de Pokemon</title>
   <meta name="description"
     content="Pokedex especializado para jugadores de Pokemon Go! que deseen saber todo tipo de datos sobre sus personajes Pokemón favoritos">
   <meta name="author" content="Allison Tovar, Anna Lizarraga">
@@ -45,37 +45,35 @@
     </select>
 
     <span id="inputSearchContainer" class="searchPokemon">
-      <input id="inputSearch" type="text" value="" placeholder="Search by Name">
+      <input id="inputSearch" type="text" placeholder="Search by Name">
     </span>
   </header>
 
   <aside class="aside-web">
 
     <img id="Entrenador" class="hide-entrenador" src="./images/Entrenador_Pokémon_Go.png">
-    <img id="EntrenadorMovil" class="hide-entrenador" src="./images/entrenador_movil.png">
     <img id="Pokebola" src="./images/POKEBOLA_Mesa de trabajo 1.png">
 
     <h2>Drasher16</h2>
-    <div class="player">
-      <div id="userName">Drasher16</div>
-      <div id="level"> 21 Level</div>
-      <div id="barraNivel" class="barraNivelMovile"></div>
-      <div id="raiting"> 49,352/50,000</div>
-    </div>
-    </div>
-    <div id="Nav" class="hideNav">
+    <section class="player">
+      <p id="userName">Drasher16</p>
+      <p id="level"> 21 Level</p>
+      <p id="barraNivel" class="barraNivelMovile"></p>
+      <p id="raiting"> 49,352/50,000</p>
+    </section>
+
+    <nav id="Nav" class="hideNav">
       <option class="pags" id="Home"> Home </option>
       <option class="pags" id="Pokedex"> Pokédex </option>
       <option class="pags" id="Comparation"> Comparation </option>
-    </div>
+    </nav>
 
   </aside>
 
   <main id="root">
   </main>
-
-  <script src="main.js" type="module"></script>
-
 </body>
+
+<script src="main.js" type="module"></script>
 
 </html>

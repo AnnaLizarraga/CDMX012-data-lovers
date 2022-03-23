@@ -286,23 +286,22 @@ Los criterios para considerar que has completado este proyecto son:
 
 Para este proyecto se decidió usar la data de **Pokémon**, debido a las muchas
 posibilidades que teníamos. Para definir el producto final se contestó a las 
-siguientes preguntas y con basw en eso, realizamos nuestros primeros bocetos e
+siguientes preguntas y con base en eso, realizamos nuestros primeros bocetos e
 Historias de usuario:
 
-* ¿Quiénes son los principales usuarios de producto?
-** Jugadores de Pokémon Go! que estén interesados en conocer las caracterpisticas 
-básicas de ataque y defensa de cada Pokémon.
-* ¿Cuáles son los objetivos de estos usuarios en relación con el producto?
-** Que el usuario sea capaz de encontrar de forma sencilla la información básica de
-su Pokémon favorito.
-* ¿Cuáles son los datos más relevantes que quieren ver en la interfaz y por qué?
-** Datos básicos como nombre, imagen y tipo, así cono algunas estadísticas básicas
+* **¿Quiénes son los principales usuarios de producto?** Jugadores de Pokémon Go! 
+que estén interesados en conocer las características básicas de ataque y defensa 
+de cada Pokémon.
+* **¿Cuáles son los objetivos de estos usuarios en relación con el producto?** Que el 
+usuario sea capaz de encontrar de forma sencilla la información básica de su Pokémon 
+favorito.
+* **¿Cuáles son los datos más relevantes que quieren ver en la interfaz y por qué?**
+Datos básicos como nombre, imagen y tipo, así cono algunas estadísticas básicas
 y fortalezas y debilidades.
-* ¿Cuándo utilizan o utilizarían el producto?
-** Encontrarán en la página principal cada uno de los 251 Pokémon, podrán pulsar a
-cualquiera de las tarjetas y se desplegará una ventana con su información básica. En
-la cabecera encontrarán la sección de ordenado, filtrado y búsqueda para que puedan 
-manejar la información como gusten.
+* **¿Cuándo utilizan o utilizarían el producto?** Encontrarán en la página principal 
+cada uno de los 251 Pokémon, podrán pulsar a cualquiera de las tarjetas y se desplegará 
+una ventana con su información básica. En la cabecera encontrarán la sección de 
+ordenado, filtrado y búsqueda para que puedan manejar la información como gusten.
 
 ### Historias de usuario
 
@@ -311,63 +310,63 @@ historias de Usuario:
 
 1. Yo como usuario quiero poder visualizar la lista completa de Pokémon (nombre, 
 imagen y tipo) en la página principal.
-1.1. Criterios de aceptación
-1.1.1. El usuario va a poder visualizar cada uno de los Pokémon en la página de inicio.
-1.1.2. La información básica de cada Pokémon (nombre, número, imagen y tipo) se
+* 1.1. Criterios de aceptación
+- 1.1.1. El usuario va a poder visualizar cada uno de los Pokémon en la página de inicio.
+- 1.1.2. La información básica de cada Pokémon (nombre, número, imagen y tipo) se
 visualizará en forma de tarjetas por toda la página.
-1.2. Definición de terminado
-1.2.1. La página tendrá una estructura básica en HTML.
-1.2.2. La página tendrá un estilo básico en CSS.
-1.2.3. Las tarjetas se formarán con el modelo de caja _Box Model_ y su distribución
+* 1.2. Definición de terminado
+- 1.2.1. La página tendrá una estructura básica en HTML.
+- 1.2.2. La página tendrá un estilo básico en CSS.
+- 1.2.3. Las tarjetas se formarán con el modelo de caja _Box Model_ y su distribución
 se hará por medio de _Flexbox_.
-1.2.4. Se cargará la información de cada Pokémon por medio de JS.
+- 1.2.4. Se cargará la información de cada Pokémon por medio de JS.
 
 2. Yo como usuario quiero poder ordenar el listado de los Pokemón en la pantalla 
 para poder elegir uno.
-2.1. Criterios de aceptación
-2.1.1. El usuario va a poder visualizar un desplegable en la cabecera de la página.
-2.1.2. El usuario podrá elegir una opción entre orden alfabético y orden numérico,
+* 2.1. Criterios de aceptación
+- 2.1.1. El usuario va a poder visualizar un desplegable en la cabecera de la página.
+- 2.1.2. El usuario podrá elegir una opción entre orden alfabético y orden numérico,
 ascendente y descendente para poder ordenar la lista.
-2.2. Definición de terminado
-2.2.1. Se creará una entrada con todas las opciones en la cabecera de la página.
-2.2.2. Tendrá un estilo básico en CSS.
-2.2.3. Tendrá una función de ordenado con JS.
+* 2.2. Definición de terminado
+- 2.2.1. Se creará una entrada con todas las opciones en la cabecera de la página.
+- 2.2.2. Tendrá un estilo básico en CSS.
+- 2.2.3. Tendrá una función de ordenado con JS.
 
 3. Yo como usuario quiero poder filtrar el listado de los Pokemón en la pantalla 
 para poder elegir uno.
-3.1. Criterios de aceptación
-3.1.1. El usuario va a poder visualizar un desplegable en la cabecera de la página.
-3.1.2. El usuario podrá elegir una opción entre cada tipo de Pokémon para poder 
+* 3.1. Criterios de aceptación
+- 3.1.1. El usuario va a poder visualizar un desplegable en la cabecera de la página.
+- 3.1.2. El usuario podrá elegir una opción entre cada tipo de Pokémon para poder 
 filtrar la lista.
-3.2. Definición de terminado
-3.2.1. Se creará una entrada con todas las opciones en la cabecera de la página.
-3.2.2. Tendrá un estilo básico en CSS.
-3.2.3. Tendrá una función de ordenado con JS.
+* 3.2. Definición de terminado
+- 3.2.1. Se creará una entrada con todas las opciones en la cabecera de la página.
+- 3.2.2. Tendrá un estilo básico en CSS.
+- 3.2.3. Tendrá una función de ordenado con JS.
 
 4. Yo como usuario quiero poder buscar un Pokémon específico.
-4.1. Criterios de aceptación
-4.1.1. El usuario va a poder visualizar un cuadro de texto en la cabecera de la página.
-4.1.2. El usuario podrá ingresar un nombre de un Pokémon para visualizarlo en la página 
+* 4.1. Criterios de aceptación
+- 4.1.1. El usuario va a poder visualizar un cuadro de texto en la cabecera de la página.
+- 4.1.2. El usuario podrá ingresar un nombre de un Pokémon para visualizarlo en la página 
 principal.
-4.2. Definición de terminado
-4.2.1. Se creará una entrada de texto para la búsqueda.
-4.2.2. Tendrá un estilo básico en CSS.
-4.2.3. Tendrá una función de ordenado con JS.
+* 4.2. Definición de terminado
+- 4.2.1. Se creará una entrada de texto para la búsqueda.
+- 4.2.2. Tendrá un estilo básico en CSS.
+- 4.2.3. Tendrá una función de ordenado con JS.
 
 5. Yo como usuario quiero poder visualizar la información básica de cada Pokemon 
 en una ventana de la página principal.
-5.1. Criterios de aceptación
-5.1.1. El usuario va a poder dar click a la tarjeta de cada Pokémon.
-5.1.2. El usuario visualizar una ventana con la información básica de cada Pokémon.
-5.1.2. El usuario visualizar en la ventana gráficas con ataque y defensa de cada Pokémon,
+* 5.1. Criterios de aceptación
+- 5.1.1. El usuario va a poder dar click a la tarjeta de cada Pokémon.
+- 5.1.2. El usuario visualizar una ventana con la información básica de cada Pokémon.
+- 5.1.2. El usuario visualizar en la ventana gráficas con ataque y defensa de cada Pokémon,
 así como su descripción, fortalezas y debilidades.
-5.2. Definición de terminado
-5.2.1. Se creará una ventana modal de forma dinámica en JS.
-5.2.2. Tendrá un estilo básico en CSS.
-5.2.3. Tendrá un botón de cierre.
-5.2.4. Se mostrará información como número, nombre, tipo, descripción, fortalezas y
+* 5.2. Definición de terminado
+- 5.2.1. Se creará una ventana modal de forma dinámica en JS.
+- 5.2.2. Tendrá un estilo básico en CSS.
+- 5.2.3. Tendrá un botón de cierre.
+- 5.2.4. Se mostrará información como número, nombre, tipo, descripción, fortalezas y
 debilidades de cada Pokémon.
-5.2.5. Se creará una gráfica que contenga sus puntajes de ataque, defensa y stamina por
+- 5.2.5. Se creará una gráfica que contenga sus puntajes de ataque, defensa y stamina por
 cada Pokémon.
 
 ### Diseño de la Interfaz de Usuario
@@ -378,9 +377,9 @@ Comenzamos con dos pantallas mostrando cada Pokémon en lista. Gracias a la
 retroalimentación de posibles usuarios, el diseño se cambió por el mostrado 
 en las dos siguientes imágenes:
 
-![20220321_210612(1)](https://slack-files.com/T0NNB6T0R-F038E5SAM6D-a6bcfc87f8)
+![20220321_210612](/src/images/20220321_210612.jpg)
 
-![20220321_210620(1)](https://slack-files.com/T0NNB6T0R-F037LUZHBF1-c39503622c)
+![20220321_210620](/src/images/20220321_210620.jpg)
 
 #### Prototipo de alta fidelidad
 
@@ -389,9 +388,9 @@ siempre fue la facilidad para que el usuario pueda encontrar la información que
 necesita de forma rápida, por lo que optamos por una interfaz limpia con los
 colores llamativos sin sobresaturar la página y este fue el resultado final:
 
-![Pokedex](https://slack-files.com/T0NNB6T0R-F037M0WLZ3R-7e6a300a1a)
+![Pokedex](/src/images/Pokedex.png)
 
-![Pokedex (1)](https://slack-files.com/T0NNB6T0R-F038RBH0GGG-59875e6ace)
+![Pokedex 1](/src/images/Pokedex%201.png)
 
 A pesar de que se trabajó en otras pantallas y en un diseño para móvil, al final
 optamos por tener las dos imágenes mostradas en nuestra pantalla de inicio.

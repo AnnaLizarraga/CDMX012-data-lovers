@@ -407,7 +407,7 @@ main {
   margin-top: 8rem;
 }
 
-  /* ////////filters */
+  /*filters*/
  #order {
     position: fixed;
     left: 10%;
@@ -426,7 +426,7 @@ main {
     top: 17%;
   }
 
-  /* ////////ASIDE */
+  /* ASIDE */
 
   aside {
     margin: 0px;
@@ -466,7 +466,7 @@ main {
  
   }
 
-  /* ////////cards */
+  /* cards */
   main {
     float: none;
     width: 100%;
