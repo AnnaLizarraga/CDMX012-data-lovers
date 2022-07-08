@@ -1,30 +1,29 @@
-// estas funciones son de ejemplo
 import data from "./data/pokemon/pokemon.js";
 
-let pokemonList = data.pokemon;
+const pokemonList = data.pokemon;
 
-function buildPokemonNames() {
-  let pokemonNames = new Array(); //array lista nombres
+export function buildPokemonNames() {
+  const pokemonNames = []; //array lista nombres
 
-  for (let pokemon of pokemonList) {
+  for (const pokemon of pokemonList) {
     pokemonNames.push(pokemon.name); //envia los pokemones por nombre al array
   }
   return pokemonNames;
 }
 
-function buildPokemonNums() {
-  let pokemonNum = new Array(); //array lista nombres
+export function buildPokemonNums() {
+  const pokemonNum = []; //array lista nombres
 
-  for (let pokemon of pokemonList) {
+  for (const pokemon of pokemonList) {
     pokemonNum.push(pokemon.num); //envia los pokemones por numero al array
   }
   return pokemonNum;
 }
 
-export const orderAZ = () => {
+export const orderAZ = (pokemonList) => {
   // Ordenado A-Z
-  let pokemonNameAZ = buildPokemonNames().sort(); //ordena los pokenones de la A-Z
-  let pokemonAz = new Array(); // guarda la ejecucion de la funcion
+  const pokemonNameAZ = buildPokemonNames().sort(); //ordena los pokemones de la A-Z
+  const pokemonAz = []; // guarda la ejecucion de la funcion
 
   for (const name of pokemonNameAZ) {
     // busca en la lista de nombres ordenados por nombre
@@ -39,11 +38,11 @@ export const orderAZ = () => {
   return pokemonAz;
 }
 
-export const orderZA = () => {
+export const orderZA = (pokemonList) => {
   //ordena los pokemones de la Z-A
-  let pokemonNameZA = buildPokemonNames().sort().reverse(); //ordena los nombres de la A-Z
-  let pokemonZa = new Array(); // guarda la ejecucion de la funcion
-  console.log(pokemonNameZA);
+  const pokemonNameZA = buildPokemonNames().sort().reverse(); //ordena los nombres de la A-Z
+  const pokemonZa = []; // guarda la ejecucion de la funcion
+
   for (const name of pokemonNameZA) {
     // busca por nombre en la lista de nombres
     for (const pokemon of pokemonList) {
@@ -57,12 +56,12 @@ export const orderZA = () => {
   return pokemonZa;
 }
 
-export const orderLowest = () => {
+export const orderLowest = (pokemonList) => {
   //Ordena los pokemon por número MENOR
-  let pokemonNumLowest = buildPokemonNums().sort(function (a, b) {
+  const pokemonNumLowest = buildPokemonNums().sort(function (a, b) {
     return a - b;
   }); //Ordena los pokemon por número 001-251 comparando el valor de su atributo num
-  let pokemonLowest = new Array(); // guarda la ejecucion de la funcion
+  const pokemonLowest = []; // guarda la ejecucion de la funcion
 
   for (const num of pokemonNumLowest) {
     // busca por el numero del pokemon en la lista de pokemones ordenados
@@ -77,13 +76,13 @@ export const orderLowest = () => {
   return pokemonLowest;
 }
 
-export const orderHighest = () => {
+export const orderHighest = (pokemonList) => {
   //Ordena los pokemon por número MAYOR
-  let pokemonNumHigher = buildPokemonNums().sort(function (a, b) {
+  const pokemonNumHigher = buildPokemonNums().sort(function (a, b) {
     return b - a;
   }); //Ordena los pokemon por número 251-001 comparando el valor de su atributo num
-  let pokemonHigher = new Array(); // guarda la ejecucion de la funcion
-  console.log(pokemonNumHigher);
+
+  const pokemonHigher = []; // guarda la ejecucion de la funcion
 
   for (const num of pokemonNumHigher) {
     // busca por el numero del pokemon en la lista de pokemones ordenados
@@ -99,16 +98,19 @@ export const orderHighest = () => {
 }
 
 ///////////////////////FILTRADO
+export function getFillTypeSelected(){
+return document.getElementById("filter").value;//toma el valor de la opcion seleccionada HTML id=filter
+}
 
-export const fillterType = () => {
-  let FilTypeSelected = document.getElementById("filter").value; //toma el valor de la opcion seleccionada HTML id=filter
-  let FilType = new Array(); // guarda la ejecucion del for
+export const fillterType = (pokemonTypeSelected, pokemonList) => {
+   
+  const FilType = []; // guarda la ejecucion del for
 
   for (const pokemon of pokemonList) {
     // busca plos pokemones en la lista de pokemones
     if (
-      pokemon.type[0] === FilTypeSelected ||
-      pokemon.type[1] === FilTypeSelected
+      pokemon.type[0] === pokemonTypeSelected ||
+      pokemon.type[1] === pokemonTypeSelected
     ) {
       // busca el valor en la posición 1 o 2 de los tipos
       FilType.push(pokemon); // envia el pokemon filtrado al array
@@ -118,15 +120,16 @@ export const fillterType = () => {
 }
 
 /////////////////////// BUSQUEDA
+export function inputPokemonName(){
+  return document.getElementById("inputSearch").value.toLowerCase();
+  }
 
-export const inputPokemon = () => {
-  let inputPokemonSearch = document
-    .getElementById("inputSearch")
-    .value.toLowerCase();
-  let pokemonSelected = new Array();
+  
+export function searchByName(pokemonSearchByName, pokemonList){
+  const pokemonSelected = new Array();
 
   for (const pokemon of pokemonList) {
-    if (pokemon.name.includes(inputPokemonSearch)) {
+    if (pokemon.name.includes(pokemonSearchByName)) {
       pokemonSelected.push(pokemon);
     }
   }

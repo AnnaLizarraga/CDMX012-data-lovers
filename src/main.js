@@ -1,39 +1,44 @@
-import { orderAZ, orderZA, orderLowest, orderHighest, fillterType, inputPokemon } from "./data.js";
 
-let pokemonContainer = document.getElementById("root");
+import {
+  orderAZ,
+  orderZA,
+  orderLowest,
+  orderHighest,
+  fillterType,
+  getFillTypeSelected,
+  searchByName,
+  inputPokemonName,
+} from "./data.js";
+import data from "./data/pokemon/pokemon.js";
+const pokemonList = data.pokemon;
+
+const pokemonContainer = document.getElementById("root");
 
 function buildCards(pokemonArray) {
   // crea las cards de pokemones
 
   for (const pokemon of pokemonArray) {
-    let card = document.createElement("div");
+    const card = document.createElement("section");
     card.className = "card";
-    card.addEventListener(
-      "click",
-      () => {
-        // agrega el lissener a la card
-        console.log(pokemon.name);
+    card.addEventListener("click", () => {
+        buildModalInfo(pokemon); // agrega el listener a la card
+      });
 
-        buildModalInfo(pokemon);
-      },
-      false
-    );
-
-    let pokemonNum = document.createElement("div");
+    const pokemonNum = document.createElement("p");
     pokemonNum.className = "property num";
 
-    let pokemonName = document.createElement("div");
+    const pokemonName = document.createElement("h3");
     pokemonName.className = "property name";
 
-    let pokemonImg = document.createElement("img");
+    const pokemonImg = document.createElement("img");
     pokemonImg.setAttribute("src", `${pokemon.img}`);
     pokemonImg.className = "property img";
 
-    let barrita = document.createElement("div");
+    const barrita = document.createElement("span");
     barrita.className = "barrita";
 
-    let num = document.createTextNode(`${pokemon.num}`);
-    let name = document.createTextNode(`${pokemon.name}`);
+    const num = document.createTextNode(`${pokemon.num}`);
+    const name = document.createTextNode(`${pokemon.name}`);
 
     pokemonNum.appendChild(num);
     pokemonName.appendChild(name);
@@ -43,11 +48,10 @@ function buildCards(pokemonArray) {
     card.appendChild(barrita);
     pokemonContainer.appendChild(card);
 
-    for (let type of pokemon.type) {
-      let divType = document.createElement("div"); // separa los tipos en divs
-      divType.id = "divType"; //agrega clase a los divs
-      divType.className = type; //agrega clase background por tipo
-      let textType = document.createTextNode(type); //crea el texto del tipo
+    for (const type of pokemon.type) {
+      const divType = document.createElement("p"); // separa los tipos en divs
+      divType.className = `${type} divType`; //agrega clase background por tipo
+      const textType = document.createTextNode(type); //crea el texto del tipo
       divType.appendChild(textType);
       card.appendChild(divType); //agrega los divs a la card
     }
@@ -58,26 +62,26 @@ function buildCards(pokemonArray) {
 function orderList() {
   //Ejecución de funciones segun el caso seleccionado
 
-  let orderType = document.getElementById("order").value; //toma el valor de la opcion seleccionada HTML id=order
-  let resultOrder = new Array();
+  const orderType = document.getElementById("order").value; //toma el valor de la opcion seleccionada HTML id=order
+  let resultOrder = [];
 
   switch (
     orderType // muestra la información segun el caso elegido
   ) {
     case "AZ": //toma el valor de la opcion seleccionada HTML value = AZ
-      resultOrder = orderAZ(); //la función que se ejecutará en caso de ser seleccionada
+      resultOrder = orderAZ(pokemonList); //la función que se ejecutará en caso de ser seleccionada
       break;
 
     case "ZA": //toma el valor de la opcion seleccionada HTML value = ZA
-      resultOrder = orderZA();
+      resultOrder = orderZA(pokemonList);
       break;
 
     case "lowest": //toma el valor de la opcion seleccionada HTML value = lowest
-      resultOrder = orderLowest();
+      resultOrder = orderLowest(pokemonList);
       break;
 
     case "higher": //toma el valor de la opcion seleccionada HTML value = higher
-      resultOrder = orderHighest();
+      resultOrder = orderHighest(pokemonList);
       break;
   }
 
@@ -86,144 +90,186 @@ function orderList() {
 
 ///////////// CONSTRUCTOR DE MODAL INFORMACIÓN
 
-let modalPokemonInfo = document.getElementById("modal-container");
-
 function buildModalInfo(pokemon) {
-  let modalInfo = document.createElement("div");
+  const modalPokemonInfo = document.getElementById("modal-container");
+
+  //VENTANA DATOS
+  const modalInfo = document.createElement("section");
   modalInfo.className = "modalStructure";
   modalPokemonInfo.appendChild(modalInfo);
 
-  let modalClose = document.getElementById("modalClose");
+  //BOTÓN CERRAR VENTANA
+  const modalClose = document.createElement("button");
+  modalClose.className = "modalClose";
+  const btnClose = document.createTextNode("X");
+  modalClose.appendChild(btnClose);
+  modalClose.addEventListener("click", () => {
+    modalPokemonInfo.removeChild(modalInfo);
+  });
   modalInfo.appendChild(modalClose);
 
-  let pokemonNum = document.getElementById("ModPokeNum");
-  pokemonNum.className = "m-num";
-  let num = document.createTextNode(`${pokemon.num}`);
-  pokemonNum.appendChild(num);
-  modalInfo.appendChild(pokemonNum);
-
-  //////////////////Container General
-
-  let modalInfoContainer = document.createElement("div");
+  //Container General
+  const modalInfoContainer = document.createElement("div");
   modalInfoContainer.className = "modalBackground";
   modalInfo.appendChild(modalInfoContainer);
 
-  ////////////////////// pokemon
+  // general info
+  const generalInfo = document.createElement("article");
+  generalInfo.className = "modalPokemon";
+  modalInfoContainer.appendChild(generalInfo);
 
-  let modalInfoPokemon = document.getElementById("ModalPokemon");
-  modalInfoPokemon.className = "modInfoPokemon";
-  modalInfoContainer.appendChild(modalInfoPokemon);
+  const pokemonNum = document.createElement("p");
+  pokemonNum.className = "text";
+  const num = document.createTextNode(`${pokemon.num}`);
+  pokemonNum.appendChild(num);
+  generalInfo.appendChild(pokemonNum);
 
-  let pokemonImg = document.getElementById("modImgPokemon");
+  const pokemonImg = document.createElement("img");
+  pokemonImg.className = "general-info";
   pokemonImg.setAttribute("src", `${pokemon.img}`);
-  modalInfoPokemon.appendChild(pokemonImg);
+  generalInfo.appendChild(pokemonImg);
 
-  let pokemonName = document.createElement("div");
-  pokemonName.className = "m-Name";
-  let name = document.createTextNode(`${pokemon.name}`);
+  const pokemonName = document.createElement("p");
+  pokemonName.className = "m-Name general-info";
+  const name = document.createTextNode(`${pokemon.name}`);
   pokemonName.appendChild(name);
-  modalInfoPokemon.appendChild(pokemonName);
+  generalInfo.appendChild(pokemonName);
 
-  let barrita = document.getElementById("modBarrita");
-  modalInfoPokemon.appendChild(barrita);
+  const barrita = document.createElement("span");
+  barrita.className = "barrita";
+  generalInfo.appendChild(barrita);
 
-  let contMaxCP = document.getElementById("maxCP"); //contenedor
-  contMaxCP.className = "m-maxCp"; // agrega class
-  let maxCp = document.createTextNode(`${pokemon.stats["max-cp"]}`); // agrega objeto
-  let atributo = document.createElement("div");
-  atributo.className = "negritas";
-  let atributs = document.createTextNode("Máx CP:");
+  const contMaxCP = document.createElement("p");
+  contMaxCP.className = "text"; // agrega class
+  const maxCp = document.createTextNode(`${pokemon.stats["max-cp"]}`);
+  const atribute = document.createElement("p");
+  atribute.className = "m-maxCp negritas";
+  const atributs = document.createTextNode("Máx CP: ");
   contMaxCP.appendChild(atributs);
-  modalInfoPokemon.appendChild(contMaxCP);
+  generalInfo.appendChild(contMaxCP);
   contMaxCP.appendChild(maxCp);
-  modalInfoPokemon.appendChild(contMaxCP);
+  generalInfo.appendChild(contMaxCP);
 
-  for (let type of pokemon.type) {
-    let divType = document.createElement("div"); // separa los tipos en divs
-    divType.id = "divType"; //agrega clase a los divs
-    divType.className = type; //agrega clase background por tipo
-    let textType = document.createTextNode(type); //crea el texto del tipo
+  for (const type of pokemon.type) {
+    const divType = document.createElement("p"); // separa los tipos en párrafos
+    divType.className = `divType ${type}`; //agrega clase background por tipo
+    const textType = document.createTextNode(type); //crea el texto del tipo
     divType.appendChild(textType);
-    modalInfoPokemon.appendChild(divType); //agrega los divs a la card
+    generalInfo.appendChild(divType); //agrega los p a la card
   }
-  //////////////////////////////////////////////BOTONES
 
-  let modalSelectedButtons = document.getElementById("modalSelectButtons");
-  modalSelectedButtons.className = "modButtons";
-  modalInfoContainer.appendChild(modalSelectedButtons);
+  const description = document.createElement("p");
+  description.className = "description";
+  const descriptionText = document.createTextNode(`${pokemon.about}`);
+  description.appendChild(descriptionText);
+  modalInfoContainer.appendChild(description);
 
-  let butonAbout = document.getElementById("modalAbout");
-  modalSelectedButtons.appendChild(butonAbout);
+  //seccion fortalezas y debilidades
+  const defense = document.createElement("div");
+  defense.className = "defense-section";
 
-  let butonStats = document.getElementById("modalStats");
-  modalSelectedButtons.appendChild(butonStats);
+  //seccion resistencias
+  const resistantTitle = document.createElement("article");
+  const resistantText = document.createTextNode("Resistant:");
+  resistantTitle.className = "label";
+  resistantTitle.appendChild(resistantText);
+  defense.appendChild(resistantTitle);
+  for (const resistant of pokemon.resistant) {
+    const pokemonResistant = document.createElement("p"); // separa los tipos en p
+    pokemonResistant.className = ` divType ${resistant}`; //agrega clase background por tipo
+    const textResistant = document.createTextNode(resistant); //crea el texto del tipo
+    pokemonResistant.appendChild(textResistant);
+    defense.appendChild(pokemonResistant); //agrega los p a la card
+  }
 
-  let butonEvolution = document.getElementById("modalEvolution");
-  modalSelectedButtons.appendChild(butonEvolution);
+  //seccion debilidades
+  const weaknessesTitle = document.createElement("article");
+  const weaknessesText = document.createTextNode("Weaknesses:");
+  weaknessesTitle.className = "label";
+  weaknessesTitle.appendChild(weaknessesText);
+  defense.appendChild(weaknessesTitle);
+  for (const weaknesses of pokemon.weaknesses) {
+    const pokemonWeaknesses = document.createElement("p"); // separa los tipos en divs
+    pokemonWeaknesses.className = `divType ${weaknesses}`; //agrega clase background por tipo
+    const textWeaknesses = document.createTextNode(weaknesses); //crea el texto del tipo
+    pokemonWeaknesses.appendChild(textWeaknesses);
+    defense.appendChild(pokemonWeaknesses); //agrega los divs a la card
+  }
+  modalInfoContainer.appendChild(defense);
 
-  ////////////////////////////////////////////// INFOGENE
+  //GRAFICAS
+  const stats = document.createElement("figure");
+  stats.className = "stats-chart";
+  const graphics = document.createElement("canvas");
+  graphics.id = "myChart";
 
-  let ModalGenePokemon = document.getElementById("ModalGeneration");
-  ModalGenePokemon.className = "modGene";
-  modalInfoContainer.appendChild(ModalGenePokemon);
+  stats.appendChild(graphics);
+  modalInfoContainer.appendChild(stats);
 
-    let contGeneNum = document.getElementById("ModalGeneration"); //contenedor
-    //contGeneNum.className="modGeneNum";
-    console.log(contGeneNum);
-    let geneNumO = document.createTextNode(`${pokemon.generation["name"]}`); // agrega objeto
-    let atributoGeneNum = document.createElement("div");
-    atributoGeneNum.className = "negritas";
-    let geneNumP = document.createTextNode("Generation:");
-    contGeneNum.appendChild(geneNumP);
-    ModalGenePokemon.appendChild(contGeneNum);
-    contGeneNum.appendChild(geneNumO);
-    ModalGenePokemon.appendChild(contGeneNum);
+  const baseStats = document.getElementById("myChart").getContext("2d");
 
+  new Chart(baseStats, {
+    type: "bar",
+    data: {
+      labels: ["Attack", "Defense", "Stamina"],
+      datasets: [
+        {
+          label: "Base stats",
+          indexAxis: "y",
+          barThickness: 30,
+          data: [
+            `${pokemon.stats["base-attack"]}`,
+            `${pokemon.stats["base-defense"]}`,
+            `${pokemon.stats["base-stamina"]}`,
+          ],
+          backgroundColor: [
+            "rgba(255, 152, 152, 1)",
+            "rgba(188, 250, 139, 1)",
+            "rgba(88, 217, 250, 1)",
+          ],
+          borderColor: [
+            "rgb(244, 54, 54)",
+            "rgb(138, 244, 54)",
+            "rgb(54, 244, 244)",
+          ],
+          hoverBorderColor: [
+            "rgb(244, 54, 54)",
+            "rgb(138, 244, 54)",
+            "rgb(54, 244, 244)",
+          ],
+          borderRadius: 75,
+          borderWidth: 5,
+        },
+      ],
+    },
+  });
 
-  // let contMaxCP = document.getElementById("maxCP"); //contenedor
-  // contMaxCP.className = "m-maxCp"; // agrega class
-  // let maxCp = document.createTextNode(`${pokemon.stats["max-cp"]}`); // agrega objeto
-  // let atributo = document.createElement("div");
-  // atributo.className = "negritas";
-  // let atributs = document.createTextNode("Máx CP:");
-  //  contMaxCP.appendChild(atributs);
-  // // modalInfoPokemon.appendChild(contMaxCP);
-  // // contMaxCP.appendChild(maxCp);
-  // // modalInfoPokemon.appendChild(contMaxCP);
-
-  console.log(pokemon);
+  const barrita2 = document.createElement("span");
+  barrita2.className = "barrita2";
+  modalInfoContainer.appendChild(barrita2);
 }
 
-////////////// CONSTRUCTORES DE CARDS
-
-////CONSTRUCTOR BUSQUEDA
-document.getElementById("botonSearch").addEventListener(
-  "click",
-  () => {
+//CONSTRUCTOR BUSQUEDA
+document.getElementById("inputSearch").addEventListener(
+  "keypress", () => {
     pokemonContainer.innerHTML = "";
-    buildCards(inputPokemon());
-  },
-  false
-);
+    const pokemonSearchByName = inputPokemonName();
+    buildCards(searchByName(pokemonSearchByName, pokemonList));
+  });
 
 ////CONSTRUCTOR ORDENADO
 document.getElementById("order").addEventListener(
-  "click",
-  () => {
+  "click", () => {
     pokemonContainer.innerHTML = "";
     buildCards(orderList());
-  },
-  false
-);
+  });
 
 ////CONSTRUCTOR FILTRADO
 document.getElementById("filter").addEventListener(
-  "click",
-  () => {
+  "click", () => {
     pokemonContainer.innerHTML = "";
-    buildCards(fillterType());
-  },
-  false
-);
+    const pokemonTypeSelected = getFillTypeSelected();
+    buildCards(fillterType(pokemonTypeSelected, pokemonList));
+  });
 
-buildCards(orderLowest()); // callback funcion lowest para mostrar en pag iniciada
+window.onload = buildCards(orderLowest(pokemonList)); // callback funcion lowest para mostrar en pag iniciada
