@@ -3,77 +3,100 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Pokédex Go! - Encuentra todo sobre tus personajes favoritos de Pokemon</title>
+  <title>PokeDex</title>
   <meta name="description"
     content="Pokedex especializado para jugadores de Pokemon Go! que deseen saber todo tipo de datos sobre sus personajes Pokemón favoritos">
   <meta name="author" content="Allison Tovar, Anna Lizarraga">
-  <link rel="icon" href="./images/POKEBOLA_Mesa de trabajo 1.png">
+  <link rel="icon" href="./images/Pokebola.png">
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
 </head>
 
-<body id="modal-container">
+<body>
 
-  <header class="hide-header">
-    <h1>Pokédex Go!</h1>
-    <select id="order" class="selectPokemon">
-      <option value="AZ" id="AZ">Alphabetical A to Z</option>
-      <option value="ZA" id="ZA">Alphabetical Z to A</option>
-      <option value="lowest" id="1-251" selected="selected">Lowest to Higher</option>
-      <option value="higher" id="251-1">Higher to Lowest</option>
-    </select>
 
-    <select id="filter" class="selectPokemon">
-      <option value="normal" id="normal">Normal</option>
-      <option value="grass" id="grass">Grass</option>
-      <option value="bug" id="bug">Bug</option>
-      <option value="water" id="water">Water</option>
-      <option value="electric" id="electric">Electric</option>
-      <option value="fire" id="fire">Fire</option>
-      <option value="ground" id="ground">Ground</option>
-      <option value="rock" id="rock">Rock</option>
-      <option value="steel" id="steel">Steel</option>
-      <option value="dark" id="dark">Dark</option>
-      <option value="fighting" id="fighting">Fighting</option>
-      <option value="flying" id="flying">Flying</option>
-      <option value="fairy" id="fairy">Fairy</option>
-      <option value="dragon" id="dragon">Dragon</option>
-      <option value="ice" id="ice">Ice</option>
-      <option value="poison" id="poison">Poison</option>
-      <option value="ghost" id="ghost">Ghost</option>
-      <option value="psychic" id="psychic">Psychic</option>
-    </select>
+  <header>
+    <h1>Pokédex</h1>
 
-    <span id="inputSearchContainer" class="searchPokemon">
-      <input id="inputSearch" type="text" placeholder="Search by Name">
-    </span>
-  </header>
+    <section class="selects_content">
 
-  <aside class="aside-web">
+      <select id="order" class="selectPokemon">
+        <option value="AZ" id="AZ">Alphabetical A to Z</option>
+        <option value="ZA" id="ZA">Alphabetical Z to A</option>
+        <option value="lowest" id="1-251" selected="selected">Lowest to Higher</option>
+        <option value="higher" id="251-1">Higher to Lowest</option>
+      </select>
 
-    <img id="Entrenador" class="hide-entrenador" src="./images/Entrenador_Pokémon_Go.png">
-    <img id="Pokebola" src="./images/POKEBOLA_Mesa de trabajo 1.png">
+      <select id="filter" class="selectPokemon">
+        <option value="normal" id="normal">Normal</option>
+        <option value="grass" id="grass">Grass</option>
+        <option value="bug" id="bug">Bug</option>
+        <option value="water" id="water">Water</option>
+        <option value="electric" id="electric">Electric</option>
+        <option value="fire" id="fire">Fire</option>
+        <option value="ground" id="ground">Ground</option>
+        <option value="rock" id="rock">Rock</option>
+        <option value="steel" id="steel">Steel</option>
+        <option value="dark" id="dark">Dark</option>
+        <option value="fighting" id="fighting">Fighting</option>
+        <option value="flying" id="flying">Flying</option>
+        <option value="fairy" id="fairy">Fairy</option>
+        <option value="dragon" id="dragon">Dragon</option>
+        <option value="ice" id="ice">Ice</option>
+        <option value="poison" id="poison">Poison</option>
+        <option value="ghost" id="ghost">Ghost</option>
+        <option value="psychic" id="psychic">Psychic</option>
+      </select>
 
-    <h2>Drasher16</h2>
-    <section class="player">
-      <p id="userName">Drasher16</p>
-      <p id="level"> 21 Level</p>
-      <p id="barraNivel" class="barraNivelMovile"></p>
-      <p id="raiting"> 49,352/50,000</p>
+      <span id="inputSearchContainer" class="searchPokemon">
+        <input id="inputSearch" type="text" value="" placeholder="Search by Name">
+      </span>
+
     </section>
 
-    <nav id="Nav" class="hideNav">
-      <option class="pags" id="Home"> Home </option>
-      <option class="pags" id="Pokedex"> Pokédex </option>
-      <option class="pags" id="Comparation"> Comparation </option>
+  </header>
+
+  <section class="asideWeb">
+
+    <div class="imgTrainer">
+      <img id="trainer" src="./images/Entrenador_PokemonGo.png">
+      <img id="trainerMovil" src="./images/Entrenador_movil.png">
+      <img id="logoMovil" src="./images/Pokémon_GO_logo.png">
+    </div>
+
+    <div class="player">
+      <div id="userName"><span class="userActive">No User</span></div>
+
+      <div class="userInfo">
+        <div id="level"> 21 <br>Level</div>
+        <div id="levelBar"></div>
+        <div id="raiting"> 49,352/50,000</div>
+      </div>
+
+    </div>
+
+    <nav>
+      <div Nav id="Nav" class="hideNav">
+        <option class="pags" id="Home">Home</option>
+        <option class="pags2" id="Pokedex"> Pokédex </option>
+      </div>
     </nav>
 
-  </aside>
+  </section>
 
   <main id="root">
   </main>
-</body>
 
-<script src="main.js" type="module"></script>
+  <div id="modal-container" class="modalNone">
+  </div>
+
+
+  <footer class="footer">About Us <br> Copyright 2022<br> </footer>
+  </footer>
+
+
+  <script src="main.js" type="module"></script>
+
+</body>
 
 </html>
