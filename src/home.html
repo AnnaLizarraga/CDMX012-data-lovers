@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>PokeDex</title>
+  <meta name="description"
+    content="Pokedex especializado para jugadores de Pokemon Go! que deseen saber todo tipo de datos sobre sus personajes Pokemón favoritos">
+  <meta name="author" content="Allison Tovar, Anna Lizarraga">
+  <link rel="icon" href="./images/Pokebola.png">
+  <link rel="stylesheet" href="./styles/styleHome.css">
+  <link rel="stylesheet" href="./styles/">
+</head>
+
+<body>
+  <div class="Background_home">
+
+    <section class="aside_home">
+      <img clas="logo_home" src="./images/Pokémon_GO_logo.png">
+
+      <div class="slogan">
+        The Pokdéx you<br>always dreamed of
+      </div>
+
+      <section class="form_content">
+        <div class="form_home">
+          <input  class="imput_datauser" id="userName_Input" type="text" placeholder="User" maxlength="10" autocomplete="off"></input>
+          <input  class="imput_datauser" type="password" placeholder="password" autocomplete="off"></input>
+          <button class="btn_singIn_home" id="btnSingIn">Sign in</button>
+          <button class="btn_direct_home">Access without login</button>
+          <span id="usuario"></span>
+        </div>
+      </section>
+      
+    </section>
+
+    <div id="modal-container_home" class="modalNone">
+    </div>
+
+    <footer class="footer_home">
+      <section class="content_footer">
+        <img src="./images/github.png">
+        <a class="AbouUs_home" href="https://github.com/LizzToher">Allison Tovar</a>
+
+        <img src="./images/github.png">
+        <a class="AbouUs_home" href="https://github.com/AnnaLizarraga">Ana Lizarraga</a>
+      </section>
+    </footer>
+
+  </div>
+  <script src="home.js" type="module"></script>
+</body>
+
+</html>

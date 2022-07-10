@@ -1,0 +1,166 @@
+.modalBlock {
+  display: block;
+}
+
+.modalNone {
+  display: none;
+}
+
+#modal-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 4;
+  left: 0;
+  top: 0;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modalBackgroundImage {
+  width: 60vw;
+  height: 75vh;
+  position: relative;
+  top: 12.5%;
+  left: 20%;
+  border-radius: 45px;
+  box-shadow: 0px 0px 25px 0px rgb(0 0 0 / 53%);
+}
+
+.modalBackground_image {
+  width: 60vw;
+  height: 40vh;
+  background-image: url('../images/Background.jpg');
+  background-size: cover;
+  border-radius: 45px;
+}
+
+#modalClose {
+  position: absolute;
+  left: 95%;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50px;
+  border-color: #ffffff;
+  font-size: 2rem;
+  color: #44696c;
+}
+
+#modalPokemonData {
+  width: 60%;
+  height: auto;
+  text-align: center;
+  position: relative;
+  left: 20%;
+  top: -50%;
+  z-index: 4;
+}
+
+#modImgPokemon {
+  width: auto;
+  height: 18vh;
+}
+
+.pokemon_name {
+  font-family: 'Roboto-black', sans-serif;
+  font-weight: bold;
+  font-size: 2em;
+  color: #44696c;
+  text-align: center;
+  text-transform: capitalize;
+  margin: auto;
+  object-position: center;
+}
+
+.maxCPModal{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.MaxCPtextbold,
+.MaxCPtext {
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.2vw;
+  color: #44696c;
+  margin: 0 .5rem;
+}
+
+.MaxCPtextbold {
+  font-weight: 800;
+}
+
+#divTypeModal{
+  width: 10rem;
+  height: 3rem;
+  border-radius: 63px;
+  font-size: 2rem;
+  color: white;
+  padding-top: 6px;
+  text-align: center;
+  margin: 1rem 0.5rem 1rem;
+  justify-content: center;
+  display: inline-flex;
+  text-transform: capitalize;
+}
+
+
+.modalBackground {
+  background-color: #ffffff;
+  width: 60vw;
+  height: 65vh;
+  position: relative;
+  top: -85%;
+  border-radius: 45px;
+  /* box-shadow: 0px 10px 25px 0px rgb(0 0 0 / 53%); */
+}
+
+.description {
+  width: 80%;
+  height: auto;
+  position: relative;
+  top: 40%;
+  left: 10%;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  font-size: 1.2vw;
+  color: #44696c;
+}
+ /* /////// desfense types */
+ .stats-chart {
+  width: 40%;
+  height: 40%;
+  position: relative;
+  top: 4%;
+  left: 5%;
+}
+
+.defense-section {
+  width: 50%;
+  height: 40%;
+  position: relative;
+  top: 45%;
+  left: 50%;
+  justify-content: center;
+}
+
+.label {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1rem;
+  color: #44696c;
+}
+
+.resistant-elements {
+  display: flex;
+  justify-content: center;
+}
+
+.weaknesses-elements {
+  display: flex;
+  justify-content: center;
+
+}
+
+

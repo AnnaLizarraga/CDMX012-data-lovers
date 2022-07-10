@@ -3,7 +3,7 @@ import data from "./data/pokemon/pokemon.js";
 const pokemonList = data.pokemon;
 
 export function buildPokemonNames() {
-  const pokemonNames = []; //array lista nombres
+  const pokemonNames = new Array(); //array lista nombres
 
   for (const pokemon of pokemonList) {
     pokemonNames.push(pokemon.name); //envia los pokemones por nombre al array
@@ -12,7 +12,7 @@ export function buildPokemonNames() {
 }
 
 export function buildPokemonNums() {
-  const pokemonNum = []; //array lista nombres
+  const pokemonNum = new Array(); //array lista nombres
 
   for (const pokemon of pokemonList) {
     pokemonNum.push(pokemon.num); //envia los pokemones por numero al array
@@ -22,8 +22,8 @@ export function buildPokemonNums() {
 
 export const orderAZ = (pokemonList) => {
   // Ordenado A-Z
-  const pokemonNameAZ = buildPokemonNames().sort(); //ordena los pokemones de la A-Z
-  const pokemonAz = []; // guarda la ejecucion de la funcion
+  const pokemonNameAZ = buildPokemonNames().sort(); //ordena los pokenones de la A-Z
+  const pokemonAz = new Array(); // guarda la ejecucion de la funcion
 
   for (const name of pokemonNameAZ) {
     // busca en la lista de nombres ordenados por nombre
@@ -36,12 +36,12 @@ export const orderAZ = (pokemonList) => {
     }
   }
   return pokemonAz;
-}
+};
 
 export const orderZA = (pokemonList) => {
   //ordena los pokemones de la Z-A
   const pokemonNameZA = buildPokemonNames().sort().reverse(); //ordena los nombres de la A-Z
-  const pokemonZa = []; // guarda la ejecucion de la funcion
+  const pokemonZa = new Array(); // guarda la ejecucion de la funcion
 
   for (const name of pokemonNameZA) {
     // busca por nombre en la lista de nombres
@@ -54,14 +54,14 @@ export const orderZA = (pokemonList) => {
     }
   }
   return pokemonZa;
-}
+};
 
 export const orderLowest = (pokemonList) => {
   //Ordena los pokemon por número MENOR
   const pokemonNumLowest = buildPokemonNums().sort(function (a, b) {
     return a - b;
   }); //Ordena los pokemon por número 001-251 comparando el valor de su atributo num
-  const pokemonLowest = []; // guarda la ejecucion de la funcion
+  const pokemonLowest = new Array(); // guarda la ejecucion de la funcion
 
   for (const num of pokemonNumLowest) {
     // busca por el numero del pokemon en la lista de pokemones ordenados
@@ -74,7 +74,7 @@ export const orderLowest = (pokemonList) => {
     }
   }
   return pokemonLowest;
-}
+};
 
 export const orderHighest = (pokemonList) => {
   //Ordena los pokemon por número MAYOR
@@ -82,7 +82,7 @@ export const orderHighest = (pokemonList) => {
     return b - a;
   }); //Ordena los pokemon por número 251-001 comparando el valor de su atributo num
 
-  const pokemonHigher = []; // guarda la ejecucion de la funcion
+  const pokemonHigher = new Array(); // guarda la ejecucion de la funcion
 
   for (const num of pokemonNumHigher) {
     // busca por el numero del pokemon en la lista de pokemones ordenados
@@ -95,16 +95,15 @@ export const orderHighest = (pokemonList) => {
     }
   }
   return pokemonHigher;
-}
+};
 
 ///////////////////////FILTRADO
-export function getFillTypeSelected(){
-return document.getElementById("filter").value;//toma el valor de la opcion seleccionada HTML id=filter
+export function getFillTypeSelected() {
+  return document.getElementById("filter").value; //toma el valor de la opcion seleccionada HTML id=filter
 }
 
 export const fillterType = (pokemonTypeSelected, pokemonList) => {
-   
-  const FilType = []; // guarda la ejecucion del for
+  const FilType = new Array(); // guarda la ejecucion del for
 
   for (const pokemon of pokemonList) {
     // busca plos pokemones en la lista de pokemones
@@ -117,15 +116,14 @@ export const fillterType = (pokemonTypeSelected, pokemonList) => {
     }
   }
   return FilType;
-}
+};
 
 /////////////////////// BUSQUEDA
-export function inputPokemonName(){
+export function inputPokemonName() {
   return document.getElementById("inputSearch").value.toLowerCase();
-  }
+}
 
-  
-export function searchByName(pokemonSearchByName, pokemonList){
+export function searchByName(pokemonSearchByName, pokemonList) {
   const pokemonSelected = new Array();
 
   for (const pokemon of pokemonList) {
