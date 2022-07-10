@@ -115,7 +115,7 @@ Definición de terminado
 - Test unitario Jest
 
 
-### Historia de Usuario 3: función ordenado
+### Historia de Usuario 3: Función ordenado
 
 Yo como usuario quiero poder ordenar el listado de los Pokémon en la pantalla para poder elegir uno.
 
@@ -223,7 +223,7 @@ Con esta información se realizaron encuestas a usuarios habituales de la plataf
 
 ### Resumen del feedback
 
-### Test de usabilidad realizado con Maze
+- Test de usabilidad realizado con Maze
 
 Para la prueba de usabilidad se envió el prototipo a 15 usuarios habituales de Pokémon Go en las cuales se les cuestiono la facilidad de navegar por la página, pedirles que realizaran los diversos tipos de ordenado disponibles, así como de filtrado, que ubicaran y buscaren un Pokémon por su nombre especifico, así como desplegar el modal de información adicional del Pokémon que quisiesen, que vieran la información mostrada y cerraran el modal para continuar su exploración de la página.
 
@@ -466,10 +466,10 @@ Throughout the implementation process we stayed true to the original prototype b
 
 ### Sketch
 
-Fig 1. home view sketch](https://raw.githubusercontent.com/AnnaLizarraga/Assets/main/Assets%20PokeDex/Home%20view.jpg)
+![Fig 1. home view sketch](https://raw.githubusercontent.com/AnnaLizarraga/Assets/main/Assets%20PokeDex/Home%20view.jpg)
 Fig 1. Sketch home view
 
-Fig 2. Sketch main view](https://raw.githubusercontent.com/AnnaLizarraga/Assets/main/Assets%20PokeDex/Boceto%20Pagina%20pokedex.JPG)
+![Fig 2. Sketch main view](https://raw.githubusercontent.com/AnnaLizarraga/Assets/main/Assets%20PokeDex/Boceto%20Pagina%20pokedex.JPG)
 Fig 2. Sketch main view
 
 ![Fig 3. Modal sketch](https://raw.githubusercontent.com/AnnaLizarraga/Assets/main/Assets%20PokeDex/Boceto%20Modal.JPG)
@@ -480,10 +480,10 @@ Fig 3. Modal sketch
 ![Fig 4. Prototype home screen](https://raw.githubusercontent.com/AnnaLizarraga/Assets/main/Assets%20PokeDex/principal%20view.jpg)
 Fig 4. Home screen prototype
 
-Fig 5. Prototype home screen](https://raw.githubusercontent.com/AnnaLizarraga/Assets/main/Assets%20PokeDex/pokedex.jpg)
+![Fig 5. Prototype home screen](https://raw.githubusercontent.com/AnnaLizarraga/Assets/main/Assets%20PokeDex/pokedex.jpg)
 Fig 5. Prototype main screen
 
-! [Fig 6. Prototype modal screen](https://raw.githubusercontent.com/AnnaLizarraga/Assets/main/Assets%20PokeDex/pokedex_modal.jpg)
+![Fig 6. Prototype modal screen](https://raw.githubusercontent.com/AnnaLizarraga/Assets/main/Assets%20PokeDex/pokedex_modal.jpg)
 Fig 6. Prototype modal screen
 
 
