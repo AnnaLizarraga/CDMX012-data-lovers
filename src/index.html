@@ -8,14 +8,15 @@
     content="Pokedex especializado para jugadores de Pokemon Go! que deseen saber todo tipo de datos sobre sus personajes Pokemón favoritos">
   <meta name="author" content="Allison Tovar, Anna Lizarraga">
   <link rel="icon" href="./images/Pokebola.png">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/src/styles/style.css" />
+  <link rel="stylesheet" href="/src/styles/modal.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
 </head>
 
 <body>
 
 
-  <header>
+  <header class="header_content">
     <h1>Pokédex</h1>
 
     <section class="selects_content">
@@ -64,21 +65,23 @@
       <img id="logoMovil" src="./images/Pokémon_GO_logo.png">
     </div>
 
-    <div class="player">
-      <div id="userName"><span class="userActive">No User</span></div>
+    <div class="player" id="userActive_container">
+      <div><span class="userActive"></span></div>
 
       <div class="userInfo">
         <div id="level"> 21 <br>Level</div>
-        <div id="levelBar"></div>
-        <div id="raiting"> 49,352/50,000</div>
+        <section class="levelInfo">
+          <div id="levelBar"></div>
+          <div id="raiting"> <span>49,352</span> <span class="levelActive">/ 50,000</span></div>
+        </section>
       </div>
 
     </div>
 
     <nav>
-      <div Nav id="Nav" class="hideNav">
-        <option class="pags" id="Home">Home</option>
-        <option class="pags2" id="Pokedex"> Pokédex </option>
+      <div id="Nav" class="hideNav">
+        <div class="pags" id="Home">Home</div>
+        <div class="pags2" id="Pokedex"> Pokédex </div>
       </div>
     </nav>
 
@@ -89,10 +92,6 @@
 
   <div id="modal-container" class="modalNone">
   </div>
-
-
-  <footer class="footer">About Us <br> Copyright 2022<br> </footer>
-  </footer>
 
 
   <script src="main.js" type="module"></script>

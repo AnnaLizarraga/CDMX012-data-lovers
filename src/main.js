@@ -3,9 +3,25 @@ import {orderAZ, orderZA,orderLowest,orderHighest,fillterType,getFillTypeSelecte
 import data from "./data/pokemon/pokemon.js";
 const pokemonList = data.pokemon;
 
+/// evalua si se ingreso con usuario
 let user = localStorage.getItem("userName");
-const userActive = document.querySelector(".userActive");
-userActive.textContent = user;
+
+  if (user === "null"){
+    const playerData = document.getElementById("userActive_container");
+    playerData.classList.remove("player")
+    playerData.classList.add("playerHide")
+  } else {
+    const userActive = document.querySelector(".userActive");
+    userActive.textContent = user;
+  }
+
+
+///// regresa a pag home
+let btnHome = document.getElementById("Home");
+btnHome.addEventListener("click", () => {
+  localStorage.clear();
+  window.location.assign("./home.html");
+});
 
 const pokemonContainer = document.getElementById("root");
 
@@ -93,12 +109,12 @@ function orderList() {
 function buildModalInfo(pokemon) {
   const modalPokemonInfo = document.getElementById("modal-container");
 
-  //VENTANA DATOS
-  const modalInfo = document.createElement("div");
-  modalInfo.className = "modalStructure";
+  //VENTANA DATOS Background
+  const modalContainer = document.createElement("div");
+  modalContainer.className = "modalBackgroundImage";
   modalPokemonInfo.classList.remove("modalNone");
   modalPokemonInfo.className = "modalBlock";
-  modalPokemonInfo.appendChild(modalInfo);
+  modalPokemonInfo.appendChild(modalContainer);
 
   //BOTÓN CERRAR VENTANA
   const modalClose = document.createElement("button");
@@ -109,60 +125,72 @@ function buildModalInfo(pokemon) {
   modalClose.addEventListener("click", () => {
   modalPokemonInfo.className = "modalNone";
   modalPokemonInfo.classList.remove("modalBlock");
-  modalPokemonInfo.removeChild(modalInfo);
+  modalPokemonInfo.removeChild(modalContainer);
   });
-  modalInfo.appendChild(modalClose);
+  modalContainer.appendChild(modalClose);
 
-  //NÚMERO POKEMON
+  ////////// background image
+  const backgroundImage = document.createElement("div");
+  backgroundImage.className = "modalBackground_image";
+  modalContainer.appendChild(backgroundImage);
 
-  //////////////////Container General
-
-  const modalInfoContainer = document.createElement("div");
-  modalInfoContainer.className = "modalBackground";
-  modalInfo.appendChild(modalInfoContainer);
-
-  ////////////////////// general info
+////////// datos poke img name etc
   const generalInfo = document.createElement("div");
-  generalInfo.id = "modalPokemon";
-  modalInfoContainer.appendChild(generalInfo);
+  generalInfo.id = "modalPokemonData";
+  modalContainer.appendChild(generalInfo);
 
   const pokemonImg = document.createElement("img");
   pokemonImg.id = "modImgPokemon";
-  pokemonImg.className = "general-info";
   pokemonImg.setAttribute("src", `${pokemon.img}`);
   generalInfo.appendChild(pokemonImg);
 
   const pokemonName = document.createElement("div");
-  pokemonName.className = "m-Name general-info";
+  pokemonName.className = "pokemon_name";
   const name = document.createTextNode(`${pokemon.name}`);
   pokemonName.appendChild(name);
   generalInfo.appendChild(pokemonName);
 
   const bar = document.createElement("div");
-  bar.id = "modBar";
   bar.className = "bar";
   generalInfo.appendChild(bar);
 
+
+
   const contMaxCP = document.createElement("div");
-  contMaxCP.id = "maxCP"; //contenedor
-  contMaxCP.className = "text"; // agrega class
-  const maxCp = document.createTextNode(`${pokemon.stats["max-cp"]}`); // agrega objeto
-  const atribute = document.createElement("div");
-  atribute.className = "m-maxCp negritas";
-  const atributs = document.createTextNode("Máx CP: ");
-  contMaxCP.appendChild(atributs);
-  generalInfo.appendChild(contMaxCP);
-  contMaxCP.appendChild(maxCp);
+  contMaxCP.className = "maxCPModal";
+
+  const maxCPTitle = document.createElement("div");
+  const maxCPText = document.createTextNode("Máx CP: ");
+  maxCPTitle.className = "MaxCPtextbold";
+  maxCPTitle.append(maxCPText);
+  contMaxCP.appendChild(maxCPTitle);
+ 
+  const maxCPokemon = document.createElement("div");
+  const maxCp = document.createTextNode(`${pokemon.stats["max-cp"]}`);
+  maxCPokemon.className = "MaxCPtext";
+  maxCPokemon.append(maxCp);
+  contMaxCP.appendChild(maxCPokemon);
+
   generalInfo.appendChild(contMaxCP);
 
+
+  /////// type of pokemon
   for (const type of pokemon.type) {
     const divType = document.createElement("div"); // separa los tipos en divs
-    divType.id = "divType"; //agrega clase a los divs
+    divType.id = "divTypeModal"; //agrega clase a los divs
     divType.className = `general-info ${type}`; //agrega clase background por tipo
     const textType = document.createTextNode(type); //crea el texto del tipo
     divType.appendChild(textType);
     generalInfo.appendChild(divType); //agrega los divs a la card
   }
+
+   //////////////////Container General blanco
+
+   const modalInfoContainer = document.createElement("div");
+   modalInfoContainer.className = "modalBackground";
+   modalContainer.appendChild(modalInfoContainer);
+
+  ////////////////////// description
 
   const description = document.createElement("p");
   description.className = "description";
@@ -170,7 +198,7 @@ function buildModalInfo(pokemon) {
   description.appendChild(descriptionText);
   modalInfoContainer.appendChild(description);
 
-  //GRÁFICAS
+  //  resistencia a tipos
 
   const defense = document.createElement("div");
   defense.className = "defense-section";
@@ -241,7 +269,7 @@ function buildModalInfo(pokemon) {
 let baseStatsChart = new Array;
 let colorOrder = new Array;
 
-////CONSTRUCTOR COMPARACION
+//CONSTRUCTOR COMPARACION
 function buildChart (){
   
   if(statAttack > statDefense) {
@@ -287,7 +315,7 @@ function buildChart (){
 }
 buildChart();
 
-////ESTILOS GRAFICA
+//ESTILOS GRAFICA
 
   new Chart(baseStats, {
     type: "bar",
@@ -321,9 +349,6 @@ buildChart();
     },
   });
 
-  const bar2 = document.createElement("div");
-  bar2.className = "bar2";
-  modalInfoContainer.appendChild(bar2);
 }
 
 ////CONSTRUCTOR BUSQUEDA
